@@ -7,9 +7,15 @@
 // * * * * *
 
 // Your code:
-const drawTriangle = (length = 5) => {
-  
-    // ... write code ...
+const drawTriangle = (length = 6) => {
+    for (let i = 0; i < length; i++) {
+        let result = '';
+        for (let j = 0; j <= i; j++) {
+            result += '* ';
+        }
+        result = result.slice(0, -1);
+        console.log(result);
+    }
 };
 
 // 2#  ========== BONUS =======================
@@ -28,9 +34,19 @@ const drawTriangle = (length = 5) => {
 
 // Your code:
 const drawJavascriptWord = (word = "javascript") => {
-  // ... write code ...
+    for (let i = word.length; i >= 0; i--) {
+        let result = '';
+        for (let j = 0; j < word.length; j++) {
+            if (j < i) {
+                result += '* ';
+            } else {
+                result += word[j].toUpperCase() + ' ';
+            }
+        }
+        result = result.slice(0, -1);
+        console.log(result);
+    }
 };
-
 
 // 3#  ========== BONUS =======================
 // Create function that takes array of vehicles with measured top speeds. Return array of vehicle with top speed.
@@ -48,5 +64,10 @@ const drawJavascriptWord = (word = "javascript") => {
 
 // Your code:
 const getVehiclesAndTopSpeed = (vehicles) => {
-  
+    return vehicles.map((vehicle) => {
+        return {
+            name: vehicle.name,
+            topSpeed: Math.max(...vehicle.measuredSpeeds)
+        };
+    });
 };
